@@ -1,6 +1,3 @@
-Sure! Here’s a clear, concise, and easy-to-understand README for your project:
-
----
 
 # Secure File Sharing System
 

@@ -1,0 +1,152 @@
+{
+  "info": {
+    "name": "Secure File Sharing API",
+    "_postman_id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+    "description": "API collection for Secure File Sharing System",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Client User Signup",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"client@example.com\",\n  \"password\": \"password123\",\n  \"role\": \"client\"\n}"
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/signup",
+          "protocol": "http",
+          "host": ["127","0","0","1"],
+          "port": "8000",
+          "path": ["signup"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Client User Login",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"client@example.com\",\n  \"password\": \"password123\"\n}"
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/login",
+          "protocol": "http",
+          "host": ["127","0","0","1"],
+          "port": "8000",
+          "path": ["login"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Ops User Login",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"ops@example.com\",\n  \"password\": \"password123\"\n}"
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/login",
+          "protocol": "http",
+          "host": ["127","0","0","1"],
+          "port": "8000",
+          "path": ["login"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Upload File (Ops User)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{access_token}}"
+          }
+        ],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "file",
+              "type": "file",
+              "src": ""
+            }
+          ]
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/upload-file",
+          "protocol": "http",
+          "host": ["127","0","0","1"],
+          "port": "8000",
+          "path": ["upload-file"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "List All Files (Client User)",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{access_token}}"
+          }
+        ],
+        "url": {
+          "raw": "http://127.0.0.1:8000/files",
+          "protocol": "http",
+          "host": ["127","0","0","1"],
+          "port": "8000",
+          "path": ["files"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Download File (Client User)",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{access_token}}"
+          }
+        ],
+        "url": {
+          "raw": "http://127.0.0.1:8000/download-file/{{file_id}}",
+          "protocol": "http",
+          "host": ["127","0","0","1"],
+          "port": "8000",
+          "path": ["download-file", "{{file_id}}"]
+        }
+      },
+      "response": []
+    }
+  ]
+}
